@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(34,193,195);
+            background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(54,132,125,1) 10%, rgba(253,187,45,1) 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+        .login-container {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 92%;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+    <h2>Login</h2>
+        <form class="login-form" action="/login" method="post" onsubmit="return checkpass()">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" onblur="checkpass()" required><br><br>
+                <span style="color: red;" id="hhh"></span> 
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" id="sub">
+            </div>
+        </form>
+        <p>didn't have an account? <a href="/signup">Signup here</a></p>
+    </div>
+
+
+    <script>
+        function checkpass() {
+            const pass = document.getElementById('password').value;
+            const Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    
+            if (Regex.test(pass)) {
+                document.getElementById("hhh").innerText = "";
+                return true;  // Password is valid, allow form submission
+            } else {
+                document.getElementById("hhh").innerText = "Password is invalid";
+                return false;  // Password is invalid, prevent form submission
+            }
+
+            
+        }
+    </script>
+
+</body>
+
+</html>
