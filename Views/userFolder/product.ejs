@@ -1,64 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product List</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Page</title>
+    <style>
+        /* Add your own styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    h2 {
-      color: #333;
-    }
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
+        .btn-edit, .btn-delete {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
 
-    li {
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 5px;
-    }
+        .btn-edit {
+            background-color: #4CAF50;
+            color: #fff;
+        }
 
-    .product-image {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+        .btn-delete {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
-  <h2>Product List</h2>
+<div class="product" id="product1">
+    <h2>Product Name 1</h2>
+    <p>Description: This is a sample product description.</p>
+    <p>Price: $19.99</p>
+    <button class="btn-edit" onclick="editProduct('product1')">Edit</button>
+    <button class="btn-delete" onclick="deleteProduct('product1')">Delete</button>
+</div>
 
-  <ul>
-    <li>
-      <h3>Product 1</h3>
-      <img src="product1.jpg" alt="Product 1" class="product-image">
-      <p>Description of Product 1.</p>
-      <p>Price: $19.99</p>
-    </li>
+<div class="product" id="product2">
+    <h2>Product Name 2</h2>
+    <p>Description: Another sample product description.</p>
+    <p>Price: $29.99</p>
+    <button class="btn-edit" onclick="editProduct('product2')">Edit</button>
+    <button class="btn-delete" onclick="deleteProduct('product2')">Delete</button>
+</div>
 
-    <li>
-      <h3>Product 2</h3>
-      <img src="product2.jpg" alt="Product 2" class="product-image">
-      <p>Description of Product 2.</p>
-      <p>Price: $29.99</p>
-    </li>
+<div class="product" id="product3">
+  <h2>Product Name 3</h2>
+  <p>Description: Another sample product description.</p>
+  <p>Price: $29.99</p>
+  <button class="btn-edit" onclick="editProduct('product3')">Edit</button>
+  <button class="btn-delete" onclick="deleteProduct('product3')">Delete</button>
+</div>
 
-    <li>
-      <h3>Product 3</h3>
-      <img src="product3.jpg" alt="Product 3" class="product-image">
-      <p>Description of Product 3.</p>
-      <p>Price: $39.99</p>
-    </li>
-  </ul>
+<div class="product" id="product4">
+  <h2>Product Name 4</h2>
+  <p>Description: Another sample product description.</p>
+  <p>Price: $29.99</p>
+  <button class="btn-edit" onclick="editProduct('product4')">Edit</button>
+  <button class="btn-delete" onclick="deleteProduct('product4')">Delete</button>
+</div>
+
+
+<div class="product" id="product5">
+  <h2>Product Name 5</h2>
+  <p>Description: This is a sample product description.</p>
+  <p>Price: $19.99</p>
+  <button class="btn-edit" onclick="editProduct('product5')">Edit</button>
+  <button class="btn-delete" onclick="deleteProduct('product5')">Delete</button>
+</div>
+
+<div class="product" id="product6">
+  <h2>Product Name 6</h2>
+  <p>Description: Another sample product description.</p>
+  <p>Price: $29.99</p>
+  <button class="btn-edit" onclick="editProduct('product6')">Edit</button>
+  <button class="btn-delete" onclick="deleteProduct('product6')">Delete</button>
+</div>
+
+<div class="product" id="product7">
+<h2>Product Name 7</h2>
+<p>Description: Another sample product description.</p>
+<p>Price: $29.99</p>
+<button class="btn-edit" onclick="editProduct('product7')">Edit</button>
+<button class="btn-delete" onclick="deleteProduct('product7')">Delete</button>
+</div>
+
+<div class="product" id="product8">
+<h2>Product Name 8</h2>
+<p>Description: Another sample product description.</p>
+<p>Price: $29.99</p>
+<button class="btn-edit" onclick="editProduct('product8')">Edit</button>
+<button class="btn-delete" onclick="deleteProduct('product8')">Delete</button>
+</div>
+
+<!-- Add more product divs as needed -->
+
+<script>
+    function editProduct(productId) {
+        // Add logic to handle editing the product with the given ID
+        console.log('Editing product:', productId);
+    }
+
+    function deleteProduct(productId) {
+        // Add logic to handle deleting the product with the given ID
+        console.log('Deleting product:', productId);
+        document.getElementById(productId).style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
-    

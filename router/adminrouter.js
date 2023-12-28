@@ -1,20 +1,21 @@
-const express = require("express")
-const router = express.Router()
+const express=require('express')
+const router=express.Router()
+const adminController=require('../controllers/adminController')
+const upload=require('../models/multer')
 
 
-const {loginController} = require("../controllers/adminController")
-const {signupController} = require("../controllers/adminController")
-const {userHomeController} = require("../controllers/adminController")
-const {adminHomeController} = require("../controllers/adminController")
-const {postSignupController} = require("../controllers/adminController")
-const {productController} = require("../controllers/adminController")
+router.get('/adminHome',adminController.adminHome)
+router.get('/seeallusers',adminController.seeAllUsers)
+router.get('/logout',adminController.logout)
+router.get('/products',adminController.productform)
+router.get('/seeProducts',adminController.seeProduct)
+router.get('/deleteProduct/:id',adminController.deleteProduct)
+router.get('/editProduct/:id',adminController.editProduct)
+router.post('/update-product/:id',)
 
-router.get("/login",loginController)
-router.get("/signup",signupController)
-router.get("/userHome",userHomeController)
-router.get("/adminHome",adminHomeController)
-router.post("/signup",postSignupController)
-router.get("/products",productController)
+router.post('/addproduct',upload.single('image'),adminController.addProduct)
+
+module.exports=router
 
 
-module.exports = router
+

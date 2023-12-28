@@ -18,9 +18,11 @@ app.set("view engine","ejs")
 
 // Middleware
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.static('public'))
+
 
 // connect mongoose
-mongoose.connect("mongodb://127.0.0.1:27017/MongoProject?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2")
+mongoose.connect("mongodb://127.0.0.1:27017/MongoProject")
 .then(()=>{
     console.log("Data is connected");
 })

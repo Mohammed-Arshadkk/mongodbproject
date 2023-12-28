@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffa500;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        li {
+            width: 23%;
+            background-color: #555;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            overflow: hidden; /* Hide overflowing content */
+        }
+
+        li img {
+            width: 100%; /* Make the image fill its container */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        li strong {
+            color: #ffa500;
+        }
+
+        button {
+            background-color: #ffa500;
+            color: #333;
+            border: none;
+            padding: 8px 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button.edit {
+            margin-right: 5px;
+        }
+
+        button.delete {
+            background-color: #cc0000;
+        }
+    </style>
+    <title>Product List</title>
+</head>
+
+<body>
+    <h1>Product List</h1>
+
+    <% if (allProducts.length === 0) { %>
+    <p>No products available.</p>
+    <% } else { %>
+    <ul>
+        <% allProducts.forEach(product => { %>
+        <li>
+            <img src="<%= product.imagePath.replace('public','') %>" alt="Product Image">
+            <strong>Product Name:</strong> <%= product.productName %>,
+            <strong>Product Price:</strong> <%= product.productPrice %>
+            <a href="/admin/editProduct/<%= product._id%>"><button class="edit">Edit</button></a>
+            <a href="/admin/deleteProduct/<%= product._id%>"><button class="delete">Delete</button></a>
+        </li>
+        <% }); %>
+    </ul>
+    <% } %>
+</body>
+
+</html>

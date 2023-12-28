@@ -1,0 +1,31 @@
+<!-- userList.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <!-- Add any additional styling or links to stylesheets here -->
+</head>
+
+<body>
+    <h1>User List</h1>
+
+    <!-- Display username and email from allUsers -->
+    <ul>
+        <% allUsers.forEach(user => { %>
+            <li>
+                <strong>Username:</strong> <%= user.username %>, 
+                <strong>Email:</strong> <%= user.email %>
+            </li>
+            <!-- Add more user information as needed -->
+        <% }); %>
+    </ul>
+
+    <!-- Add any additional content or functionality as needed -->
+
+</body>
+
+</html>
