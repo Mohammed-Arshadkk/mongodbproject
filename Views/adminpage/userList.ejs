@@ -7,22 +7,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <!-- Add any additional styling or links to stylesheets here -->
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #f0ad4e; /* Bootstrap warning color */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #f0ad4e; /* Bootstrap warning color */
+        }
+
+        tr:nth-child(even) {
+            background-color: #555;
+        }
+
+        tr:hover {
+            background-color: #777;
+        }
+    </style>
 </head>
 
 <body>
     <h1>User List</h1>
 
-    <!-- Display username and email from allUsers -->
-    <ul>
-        <% allUsers.forEach(user => { %>
-            <li>
-                <strong>Username:</strong> <%= user.username %>, 
-                <strong>Email:</strong> <%= user.email %>
-            </li>
-            <!-- Add more user information as needed -->
-        <% }); %>
-    </ul>
+    <!-- Display username and email from allUsers in a table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <!-- Add more table headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <% allUsers.forEach(user => { %>
+                <tr>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <!-- Add more table cells with user information as needed -->
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 
     <!-- Add any additional content or functionality as needed -->
 

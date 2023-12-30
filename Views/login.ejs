@@ -8,29 +8,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: rgb(34,193,195);
-            background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(54,132,125,1) 10%, rgba(253,187,45,1) 100%);
+            background: #1a1a1a; /* Dark background color for dark mode */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            
+            color: #fff; /* Set text color to white */
         }
 
         .login-container {
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #333; /* Darker background for the login container */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 8px;
             width: 300px;
-            
+            transition: background-color 0.3s; /* Smooth transition for dark mode */
         }
 
         .login-container h2 {
             text-align: center;
-            color: #333;
+            color: #fff;
         }
 
         .login-form {
@@ -45,14 +44,16 @@
         .form-group label {
             font-size: 14px;
             margin-bottom: 5px;
-            color: #555;
+            color: #bbb; /* Lighter text color for labels */
         }
 
         .form-group input {
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #555; /* Darker border color for inputs */
             border-radius: 4px;
             width: 92%;
+            background-color: #444; /* Darker background for inputs */
+            color: #fff; /* Set text color to white */
         }
 
         .form-group input[type="submit"] {
@@ -60,12 +61,41 @@
             color: #fff;
             cursor: pointer;
         }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049; /* Darker hover color */
+        }
+
+        p {
+            text-align: center;
+            color: #aaa; /* Lighter text color for the signup message */
+        }
+
+        a {
+            color: #4caf50; /* Accent color for the signup link */
+        }
+
+        /* Animation for form container */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container {
+            animation: fadeIn 0.5s ease-in-out; /* Apply the animation to the login container */
+        }
     </style>
 </head>
 
 <body>
     <div class="login-container">
-    <h2>Login</h2>
+        <h2>Login</h2>
         <form class="login-form" action="/login" method="post" onsubmit="return checkpass()">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -75,30 +105,26 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" onblur="checkpass()" required><br><br>
                 <span style="color: red;" id="hhh"></span> 
-                
             </div>
             <div class="form-group">
                 <input type="submit" value="Submit" id="sub">
             </div>
         </form>
-        <p>didn't have an account? <a href="/signup">Signup here</a></p>
+        <p>Don't have an account? <a href="/signup">Signup here</a></p>
     </div>
-
 
     <script>
         function checkpass() {
             const pass = document.getElementById('password').value;
             const Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    
+
             if (Regex.test(pass)) {
                 document.getElementById("hhh").innerText = "";
-                return true;  // Password is valid, allow form submission
+                return true; // Password is valid, allow form submission
             } else {
                 document.getElementById("hhh").innerText = "Password is invalid";
-                return false;  // Password is invalid, prevent form submission
+                return false; // Password is invalid, prevent form submission
             }
-
-            
         }
     </script>
 

@@ -1,48 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Profile</title>
+    <title>Update Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #333;
+            color: #fff;
         }
 
-        .profile-section {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .profile-container {
+            border: 1px solid #555;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #444;
+            border-radius: 5px;
         }
 
-        .profile-picture {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%;
+        form {
+            max-width: 400px;
+            margin: auto;
         }
 
-        h1, h2, p {
+        h1 {
+            color: #f0ad4e; /* Bootstrap warning color */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #f0ad4e;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
             margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5bc0de; /* Bootstrap info color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #46b8da; /* Darker shade of Bootstrap info color */
         }
     </style>
 </head>
+
 <body>
+    <h1>Update Profile</h1>
 
-    <div class="profile-section">
-        <img class="profile-picture" src="your-profile-picture.jpg" alt="Your Name">
-        <h1>Your Name</h1>
-        <h2>Job Title</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero vel odio vehicula aliquet. 
-            Nullam aliquet tristique mauris, vel condimentum ipsum tincidunt sit amet.
-        </p>
-        <p>Email: your.email@example.com</p>
-        <p>Phone: (123) 456-7890</p>
-    </div>
+    <form action="/submitProfile" method="post">
+        <% fulldata.forEach(profile=> { %>
+            <div class="profile-container">
+                <h2>Profile Information</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<%= profile.fullprofile[0].name %>" required>
 
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<%= profile.fullprofile[0].email %>" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="<%= profile.fullprofile[0].address %>">
+
+                <label for="place">Place:</label>
+                <input type="text" id="place" name="place" value="<%= profile.fullprofile[0].place %>">
+
+                <label for="pincode">Pincode:</label>
+                <input type="number" id="pincode" name="pincode" value="<%= profile.fullprofile[0].pincode %>">
+
+                <label for="phone">Phone Number:</label>
+                <input type="number" id="phone" name="phone" value="<%= profile.fullprofile[0].phone %>">
+
+                <label for="district">District:</label>
+                <input type="text" id="district" name="district" value="<%= profile.fullprofile[0].district %>">
+
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" value="<%= profile.fullprofile[0].state %>">
+
+                <!-- Add more fields as needed -->
+
+                <button type="submit">Update Profile</button>
+            </div>
+            <% }) %>
+    </form>
 </body>
+
 </html>

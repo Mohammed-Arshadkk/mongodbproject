@@ -1,5 +1,6 @@
 const users = require('../models/user')
 const products = require('../models/products')
+const profile = require('../models/profile')
 
 const adminHome = (req, res) => {
     res.render('adminPage/adminHome')
@@ -55,8 +56,15 @@ const editProduct = async (req,res)=>{
     res.render("adminpage/editproduct",{findProduct})
 }
 
-const UpdateProduct = async (req,res) =>{
-    const productId = req.params.id 
+const updateProduct = async (req,res) =>{
+    const productId = req.params.id
+    console.log(req.body);
+    const{productName,productPrice} = req.body
+    const imagePath = req.file.path;
+    console.log(imagePath);
+    await products.updateOne({_id:productId},{$set:{productName:productName,productPrice:productPrice,imagePath:imagePath}})
+    res.redirect('/admin/seeProducts')
+    
     
 }
 
@@ -69,5 +77,6 @@ module.exports = {
     addProduct,
     seeProduct,
     deleteProduct,
-    editProduct
+    editProduct,
+    updateProduct
 }

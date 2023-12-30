@@ -11,7 +11,7 @@ router.get('/products',adminController.productform)
 router.get('/seeProducts',adminController.seeProduct)
 router.get('/deleteProduct/:id',adminController.deleteProduct)
 router.get('/editProduct/:id',adminController.editProduct)
-router.post('/update-product/:id',)
+router.post('/update-product/:id',upload.single('productImage'),adminController.updateProduct)
 
 router.post('/addproduct',upload.single('image'),adminController.addProduct)
 

@@ -5,6 +5,7 @@ const bodyParser = require("body-parser")
 const Router = require("./router/userrouter")
 const Router2 = require("./router/adminrouter")
 const session = require('express-session')
+const nocache=require('nocache')
 
 // session
 app.use(session({
@@ -12,6 +13,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
+app.use(nocache())
 
 // set view engine
 app.set("view engine","ejs")
@@ -34,5 +36,5 @@ app.use("/",Router)
 app.use("/admin",Router2)
 
 app.listen(5000,()=>{
-    console.log("server Running.....");
+    console.log("server Running on 5000");
 })
